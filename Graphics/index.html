@@ -1,0 +1,28 @@
+<head>
+	<script type="text/javascript" src="js/lib.js"></script>
+	<script type="text/javascript" src="js/Rectangle.js"></script>
+	<script type="text/javascript" src="js/Circle.js"></script>
+	<script type="text/javascript" src="js/Polygon.js"></script>
+	<script type="text/javascript" src="js/Path.js"></script>
+	<script type="text/javascript" src="js/Polygon.js"></script>
+	<script type="text/javascript" src="js/Text.js"></script>
+	<script type="text/javascript" src="js/Line.js"></script>
+	<style type="text/css">
+		#divId {
+			background:  px solid black
+		}
+	</style>
+</head>
+<div id="divId"> Canvas to draw</div>
+<body>
+	<script type="text/javascript">
+		var graphics = new G.Scene("#divId",700,700);
+		//G.Line(x1,y1,x2,y2)
+		var lineX=new G.Line(40,50,200,300);
+		lineX.setId("lineX");
+		lineX.stroke_width(3);
+		var line=lineX.output();
+		graphics.render(line);
+	</script>
+
+</body>
