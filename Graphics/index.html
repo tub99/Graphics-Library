@@ -7,10 +7,9 @@
 	<script type="text/javascript" src="js/Polygon.js"></script>
 	<script type="text/javascript" src="js/Text.js"></script>
 	<script type="text/javascript" src="js/Line.js"></script>
+	<script type="text/javascript" src="js/Polyline.js"></script>
 	<style type="text/css">
-		#divId {
-			background:  px solid black
-		}
+	
 	</style>
 </head>
 <div id="divId"> Canvas to draw</div>
@@ -18,11 +17,27 @@
 	<script type="text/javascript">
 		var graphics = new G.Scene("#divId",700,700);
 		//G.Line(x1,y1,x2,y2)
-		var lineX=new G.Line(40,50,200,300);
+		var lineX=new G.Line(40,50,200,250);
 		lineX.setId("lineX");
-		lineX.stroke_width(3);
+		lineX.stroke("red"); lineX.stroke_width(3);
 		var line=lineX.output();
-		graphics.render(line);
+		//Creating a polyline
+		var poly = new G.Polyline(110,2 ,160,2 ,135,52);
+		//Creating a polygon
+		var polygon = new G.Polygon(60,20,100,40,100,80,60,100,20,80,20,40);
+		polygon.fill("#0000ff");
+		// creating text
+		var text= new G.Text(200,300,"GRAPHICS.js");
+		text.fill("green");
+		//creating text
+		var cir= new G.Circle(200,200,50);
+		cir.fill("#db4fd9");
+		cir.stroke("blue");
+		cir.stroke_width(2);
+		//graphics.render(finalsvg) to be called only once
+		var finalSvg=poly.output()+line+polygon.output()+text.output()+cir.output();
+		graphics.render(finalSvg);
+
 	</script>
 
 </body>

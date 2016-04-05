@@ -1,15 +1,14 @@
 
 /* Properties of a Circle element
     1. id- this helps us to uniquely identify the element
-    2.class- used for identifying a common group of elements
-    3.x- x-coordinate of the centre of the circle
-    4.y- y-coordinate of the centre of the circle
-    5.radius - radius of the Circle
-    6.fillColor - Color of the circle
-    7.strokeColor - strokeColor ie color of the outside edge of the circle
-    8.strokeWidth - width of the edgeLine of the circle
-    9.fillOpacity - transparency of the circle element
-    10.Stroke opacity - transparency of the edge Line
+    2.x-x-coordinate of the centre of the circle
+    3.y- y-coordinate of the centre of the circle
+    4.radius - radius of the Circle
+    5.fill - Color of the circle
+    6.stroke- strokeColor ie color of the outside edge of the circle
+    7.strokeWidth - width of the edgeLine of the circle
+    8.fillOpacity - transparency of the circle element
+    9.Stroke opacity - transparency of the edge Line
 
 
  * G.Circle creates a svg circle elemnt
@@ -17,6 +16,7 @@
  * @param {Number} y -> x co-ordinate of cirlcle's origin 
  * @return {Number} radius-> radius of the circle
  */
+ 
 G.Circle = function(x,y,radius){
     var _id = "R"+Math.round(Math.random()*100),
         _class = "",
@@ -47,31 +47,33 @@ G.Circle = function(x,y,radius){
         _h = y.h;
     }
     // the following methods are the getter and setter for the properties of
-    // a Circle element discussed above
+     // sets an identity for the circle element {@param val->String(identity)}
     this.setId = function(val){
         _id = val;
     };
+     // returns the id of the element
     this.getId = function(){
         return _id;
     };
-    this.setClass = function(val){
-        _class = val;
-    };
-    this.getClass = function(){
-        return _class;
-    };
-    this.fillColor = function(val){
+
+    //list of public functions ie the  setter functions
+    // gives a color to the circle {@param val->String(color)}
+    this.fill = function(val){
         _fill = val;
     };
-    this.strokeColor = function(val){
+       // sets the color of stroke of the circle {@param val->String(color)}
+    this.stroke = function(val){
         _stroke = val;
     };
-    this.strokeWidth = function(val){
+     // sets the width of the circle {@param val->Number(size)}
+    this.stroke_width = function(val){
         _strokeWidth = val;
     };
+    // sets the transparancy of the fill color {@param val->Number(0-100)}
     this.fillOpacity = function(val){
         _fillOpacity = val;
     };
+    // sets the transparancy of the edge of the circle{@param val->Number(0-100)}
     this.strokeOpacity = function(val){
         _strokeOpacity = val;
     };
@@ -80,7 +82,7 @@ G.Circle = function(x,y,radius){
         return render();
     };
 };
-// attaching events to various SVG elements
+// attaching events to the SVG element
 G.Circle.prototype.action = function(action,func){
     var _ael = this.getId(),
         _action = action;
